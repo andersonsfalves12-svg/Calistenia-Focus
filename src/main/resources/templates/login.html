@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!-- Projeto desenvolvido com auxílio de IA (Claude, da Anthropic). -->
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org" data-bs-theme="dark">
+<head th:replace="~{fragments/layout :: head('Login')}"></head>
+<body class="bg-body">
+
+<div class="container py-5 auth-container">
+    <h1 class="text-center mb-4">🎯 Calistenia Focus</h1>
+
+    <div class="card shadow">
+        <div class="card-body p-4">
+            <h4 class="mb-3">Entrar</h4>
+
+            <div th:replace="~{fragments/layout :: messages}"></div>
+
+            <!-- Envia POST para /login. Cada "name" precisa bater com o @RequestParam do AuthController. -->
+            <form th:action="@{/login}" method="post">
+                <div class="mb-3">
+                    <label class="form-label" for="username">Usuário</label>
+                    <input type="text" class="form-control" id="username" name="username" required autofocus>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="password">Senha</label>
+                    <input type="password" class="form-control" id="password" name="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Entrar</button>
+            </form>
+        </div>
+    </div>
+
+    <p class="text-center mt-3">Não tem conta? <a th:href="@{/register}">Cadastre-se</a></p>
+</div>
+
+</body>
+</html>

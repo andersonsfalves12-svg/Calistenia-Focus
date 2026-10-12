@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!-- Projeto desenvolvido com auxílio de IA (Claude, da Anthropic). -->
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org" data-bs-theme="dark">
+<head th:replace="~{fragments/layout :: head('Cadastro')}"></head>
+<body class="bg-body">
+
+<div class="container py-5 auth-container">
+    <h1 class="text-center mb-4">🎯 Calistenia Focus</h1>
+
+    <div class="card shadow">
+        <div class="card-body p-4">
+            <h4 class="mb-3">Criar conta</h4>
+
+            <div th:replace="~{fragments/layout :: messages}"></div>
+
+            <!-- Envia POST para /register. minlength e maxlength fazem o navegador validar antes de enviar. -->
+            <form th:action="@{/register}" method="post">
+                <div class="mb-3">
+                    <label class="form-label" for="username">Usuário</label>
+                    <input type="text" class="form-control" id="username" name="username"
+                           minlength="3" maxlength="50" required autofocus>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="password">Senha</label>
+                    <input type="password" class="form-control" id="password" name="password"
+                           minlength="4" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="confirmPassword">Confirmar senha</label>
+                    <input type="password" class="form-control" id="confirmPassword" name="confirmPassword"
+                           minlength="4" required>
+                </div>
+                <button type="submit" class="btn btn-success w-100">Cadastrar</button>
+            </form>
+        </div>
+    </div>
+
+    <p class="text-center mt-3">Já tem conta? <a th:href="@{/login}">Entrar</a></p>
+</div>
+
+</body>
+</html>

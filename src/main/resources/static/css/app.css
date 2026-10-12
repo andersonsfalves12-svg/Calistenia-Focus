@@ -1,0 +1,17 @@
+/* Estilos próprios do Calistenia Focus (o resto vem do Bootstrap) */
+
+/* Telas de login e cadastro: coluna centralizada e estreita */
+.auth-container {
+    max-width: 420px;
+}
+
+/* Campo de data do formulário de treino */
+.date-field {
+    max-width: 220px;
+}
+
+/* Área do gráfico: altura fixa para o Chart.js se ajustar a ela */
+.chart-container {
+    position: relative;
+    height: 320px;
+}
